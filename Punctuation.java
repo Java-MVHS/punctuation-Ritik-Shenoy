@@ -77,7 +77,7 @@ public class Punctuation
 	public void searchIt()
 	{
 		String words = getPunctuationWords();
-		printWords(words);
+		printWords(words); //call print method
 	}
 	
 	public String getPunctuationWords()
@@ -89,24 +89,24 @@ public class Punctuation
 		for (int x = 0; x < text.length(); x++)
 		{
 			char y = text.charAt(x);	
-			if(y == ' '|| y == '\n')
+			if(y == ' '|| y == '\n') //check for space or newline
 			{	
 				if (checkForPunctuation(word))
 				{
 				{
-					finalOutput += word + " ";
+					finalOutput += word + " "; //adds word to the end of final output, which we print later
 					
 				}
 				word = ""; //reset
 			}
 			else
-				word += y;	
+				word += y;	//otherwise will create a word out of the characters
 		}
 		
 		if (checkForPunctuation(word))
-			finalOutput += word;
+			finalOutput += word; //It will do this for the final word
 		
-		return finalOutput;
+		return finalOutput; //returns string to print
 	}
 	
 	public boolean checkForPunctuation(String wordIn)
@@ -114,19 +114,19 @@ public class Punctuation
 		for (int x = 0; x < wordIn.length(); x++)
 		{
 			char y = wordIn.charAt(x);
-				if("!@#$%^&*{}\",.'|:<>?-=+_".indexOf(y) != -1)
+				if("!@#$%^&*{}\",.'|:<>?-=+_".indexOf(y) != -1) //list of all punctuation, checks for error
 				{	
 					return true;
 					
 				}
 		}
-		return false;
+		return false; // if theres no puncutation
 	}
 	
 	
 	public void printWords(String wordsIn)
 	{
-		System.out.print(wordsIn);
+		System.out.print(wordsIn); //print output
 	}
 
 }
